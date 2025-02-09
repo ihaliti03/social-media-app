@@ -2,9 +2,13 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TweetController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [DashboardController::class, 'index']); //->name('dashboard');
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+//Route::get('/tweets', [DashboardController::class, 'index'])->name('tweet.indes');
+Route::post('/tweet', [TweetController::class, 'store'])->name('tweet.create');
 
 Route::get('/terms', function () {
     return view('terms');
