@@ -9,8 +9,14 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        $tweets = Tweet::orderBy('created_at', 'DESC');
+
+        if(request()->has('search')){
+            $tweets = $tweets->where('content', 'like', '%' . request()->get('search', '') . '%');
+        }
+
         return view('dashboard', [
-            'tweets' => Tweet::orderBy('created_at', 'desc')->paginate(10)
+            'tweets' => $tweets->paginate(10)
         ]);
     }
 }
