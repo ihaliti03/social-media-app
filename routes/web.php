@@ -6,9 +6,11 @@ use App\Http\Controllers\TweetController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-
-//Route::get('/tweets', [DashboardController::class, 'index'])->name('tweet.indes');
-Route::post('/tweet', [TweetController::class, 'store'])->name('tweet.create');
+Route::post('/tweets', [TweetController::class, 'store'])->name('tweets.store');
+Route::get('/tweets/{tweet}', [TweetController::class, 'show'])->name('tweets.show');
+Route::delete('/tweets/{tweet}', [TweetController::class, 'destroy'])->name('tweets.destroy');
+Route::get('/tweets/{tweet}/edit', [TweetController::class, 'edit'])->name('tweets.edit');
+Route::put('/tweets/{tweet}', [TweetController::class, 'update'])->name('tweets.update');
 
 Route::get('/terms', function () {
     return view('terms');

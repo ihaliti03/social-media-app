@@ -10,7 +10,7 @@ class DashboardController extends Controller
     public function index()
     {
         return view('dashboard', [
-            'tweets' => Tweet::orderBy('created_at', 'desc')->get()
+            'tweets' => Tweet::orderBy('created_at', 'desc')->paginate(10)
         ]);
     }
 }

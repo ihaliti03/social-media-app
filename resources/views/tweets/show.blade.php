@@ -38,15 +38,8 @@
         </div>
         <div class="col-6">
             @include('shared.success-message')
-            @include('shared.submit-tweet')
-            <hr>
-            @foreach ($tweets as $tweet)
-                <div class="mt-3">
-                    @include('shared.tweet-card')
-                </div>
-            @endforeach
             <div class="mt-3">
-                {{ $tweets->links() }}
+                @include('shared.tweet-card')
             </div>
         </div>
         <div class="col-3">
