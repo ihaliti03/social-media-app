@@ -7,7 +7,9 @@
         </div>
         <div class="col-6">
             @include('shared.success-message')
-            @include('shared.submit-tweet')
+            <div class="mt-3">
+                @include('shared.user-edit-card')
+            </div>
             <hr>
             @forelse ($tweets as $tweet)
                 <div class="mt-3">
